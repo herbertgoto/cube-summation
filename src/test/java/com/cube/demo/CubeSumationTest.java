@@ -18,7 +18,7 @@ public class CubeSumationTest {
     @BeforeClass
     public static void createInput() throws IOException {
         // TODO: set up your sample input object here.
-        input = "CreateTable";
+        input = "CreateMatrix";
     }
 
     private Context createContext() {
@@ -38,6 +38,6 @@ public class CubeSumationTest {
         String output = handler.handleRequest(input, ctx);
 
         // TODO: validate output here if needed.
-        Assert.assertEquals("Hello from Lambda!", output);
+        Assert.assertEquals("4", output);
     }
 }

@@ -9,10 +9,14 @@ import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
 import com.amazonaws.services.dynamodbv2.document.DynamoDB;
 import com.amazonaws.services.dynamodbv2.document.Item;
 import com.amazonaws.services.dynamodbv2.document.Table;
+import com.amazonaws.services.dynamodbv2.document.UpdateItemOutcome;
+import com.amazonaws.services.dynamodbv2.document.spec.UpdateItemSpec;
+import com.amazonaws.services.dynamodbv2.document.utils.ValueMap;
 import com.amazonaws.services.dynamodbv2.model.AttributeDefinition;
 import com.amazonaws.services.dynamodbv2.model.KeySchemaElement;
 import com.amazonaws.services.dynamodbv2.model.KeyType;
 import com.amazonaws.services.dynamodbv2.model.ProvisionedThroughput;
+import com.amazonaws.services.dynamodbv2.model.ReturnValue;
 import com.amazonaws.services.dynamodbv2.model.ScalarAttributeType;
 
 import com.amazonaws.services.lambda.runtime.Context;
@@ -22,20 +26,33 @@ public class CubeSumation implements RequestHandler<Object, String> {
 
 	@Override
 	public String handleRequest(Object input, Context context) {
+
+		AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().withEndpointConfiguration(
+				new AwsClientBuilder.EndpointConfiguration("http://localhost:8000", "us-east-1")).build();
+
+		DynamoDB dynamoDB = new DynamoDB(client);
+
 		context.getLogger().log("Operation: " + input);
 
 		String matrixName = "matrix" + ThreadLocalRandom.current().nextInt();
 
 		System.out.println(matrixName);
-		
-		//switch (input.toString()) {
-		//case "CreateMatrix":
+
+		//if (input.equals("CreateMatrix")) {
 			createMatrix(matrixName);
 			populateMatrix(2, matrixName);
-		//}
 
+			Table table = dynamoDB.getTable(matrixName);
+			//return "" + table.describe().getItemCount();
+		//} else if(input.equals("UploadItem")) {
+			updateItem(111, 4, matrixName);
+			
+			//System.out.println(table.getItem("pos", 111).get("val"));
+			
+			return "" + table.getItem("pos", 111).get("val");
+		//}
 		// TODO: implement your handler
-		return "success";
+		//return "success";
 	}
 
 	// Creates dynamoDB data structure to represent nxnxn matrix
@@ -71,29 +88,53 @@ public class CubeSumation implements RequestHandler<Object, String> {
 		DynamoDB dynamoDB = new DynamoDB(client);
 
 		Table table = dynamoDB.getTable(matrixName);
-		
+
 		for (int i = 1; i < n + 1; i++) {
 			for (int j = 1; j < n + 1; j++) {
 				for (int k = 1; k < n + 1; k++) {
-					
-					 try {
-						
-						 int index = Integer.valueOf(String.valueOf(i) + String.valueOf(j) + String.valueOf(k));
-						 
-			                table.putItem(new Item().withPrimaryKey("pos", index).withNumber("val", 0));
-			                System.out.println("PutItem succeeded: " + index + " " + 0);
 
-			            }
-			            catch (Exception e) {
-			                System.err.println("Unable to add item!");
-			                System.err.println(e.getMessage());
-			                break;
-			            }
-					
+					try {
+
+						int index = Integer.valueOf(String.valueOf(i) + String.valueOf(j) + String.valueOf(k));
+
+						table.putItem(new Item().withPrimaryKey("pos", index).withNumber("val", 0));
+						// System.out.println("PutItem succeeded: " + index + " " + 0);
+
+					} catch (Exception e) {
+						System.err.println("Unable to add item!");
+						System.err.println(e.getMessage());
+						break;
+					}
+
 				}
 			}
 		}
+	}
 
+	// Upload item
+	private void updateItem(int pos, int val, String matrixName) {
+
+		AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().withEndpointConfiguration(
+				new AwsClientBuilder.EndpointConfiguration("http://localhost:8000", "us-east-1")).build();
+
+		DynamoDB dynamoDB = new DynamoDB(client);
+
+		Table table = dynamoDB.getTable(matrixName);
+
+		UpdateItemSpec updateItemSpec = new UpdateItemSpec().withPrimaryKey("pos", pos)
+				.withUpdateExpression("set val = :v")
+				.withValueMap(new ValueMap().withNumber(":v", val))
+				.withReturnValues(ReturnValue.UPDATED_NEW);
+
+		try {
+			//System.out.println("Updating the item...");
+			UpdateItemOutcome outcome = table.updateItem(updateItemSpec);
+			//System.out.println("UpdateItem succeeded:\n" + outcome.getItem().toJSONPretty());
+
+		} catch (Exception e) {
+			System.err.println("Unable to update item!");
+			System.err.println(e.getMessage());
+		}
 	}
 
 }
