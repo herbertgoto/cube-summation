@@ -88,8 +88,11 @@ public class CubeSumation implements RequestStreamHandler {
 	// Creates dynamoDB data structure to represent nxnxn matrix
 	private void createMatrix(String matrixName) {
 
-		AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().withEndpointConfiguration(
-				new AwsClientBuilder.EndpointConfiguration("http://localhost:8000", "us-east-1")).build();
+		
+//		AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().withEndpointConfiguration(
+		//			new AwsClientBuilder.EndpointConfiguration("http://localhost:8000", "us-east-1")).build();
+		
+		AmazonDynamoDB client = AmazonDynamoDBClientBuilder.defaultClient();
 
 		DynamoDB dynamoDB = new DynamoDB(client);
 
@@ -115,8 +118,10 @@ public class CubeSumation implements RequestStreamHandler {
 	// Populates dynamo table with 0 as value and posicion as index
 	private void populateMatrix(int n, String matrixName) {
 
-		AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().withEndpointConfiguration(
-				new AwsClientBuilder.EndpointConfiguration("http://localhost:8000", "us-east-1")).build();
+//		AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().withEndpointConfiguration(
+		//			new AwsClientBuilder.EndpointConfiguration("http://localhost:8000", "us-east-1")).build();
+		
+		AmazonDynamoDB client = AmazonDynamoDBClientBuilder.defaultClient();
 
 		DynamoDB dynamoDB = new DynamoDB(client);
 
@@ -150,9 +155,11 @@ public class CubeSumation implements RequestStreamHandler {
 	// Upload item
 	private void updateItem(int index, int val, String matrixName) {
 
-		AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().withEndpointConfiguration(
-				new AwsClientBuilder.EndpointConfiguration("http://localhost:8000", "us-east-1")).build();
+	//	AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().withEndpointConfiguration(
+	//			new AwsClientBuilder.EndpointConfiguration("http://localhost:8000", "us-east-1")).build();
 
+		AmazonDynamoDB client = AmazonDynamoDBClientBuilder.defaultClient();
+		
 		DynamoDB dynamoDB = new DynamoDB(client);
 
 		Table table = dynamoDB.getTable(matrixName);
@@ -176,8 +183,10 @@ public class CubeSumation implements RequestStreamHandler {
 	// Query matrix
 	private int queryMatrix(int initIndex, int endIndex, String matrixName) {
 
-		AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().withEndpointConfiguration(
-				new AwsClientBuilder.EndpointConfiguration("http://localhost:8000", "us-east-1")).build();
+//		AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().withEndpointConfiguration(
+		//			new AwsClientBuilder.EndpointConfiguration("http://localhost:8000", "us-east-1")).build();
+		
+		AmazonDynamoDB client = AmazonDynamoDBClientBuilder.defaultClient();
 		
 		DynamoDB dynamoDB = new DynamoDB(client);
 
