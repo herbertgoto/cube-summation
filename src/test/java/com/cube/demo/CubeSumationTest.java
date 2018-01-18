@@ -1,8 +1,12 @@
 package com.cube.demo;
 
-import java.io.IOException;
+import static org.junit.Assert.assertEquals;
 
-import org.junit.Assert;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -13,12 +17,30 @@ import com.amazonaws.services.lambda.runtime.Context;
  */
 public class CubeSumationTest {
 
-    private static Object input;
-
+	private static InputStream matrixCreationRequest;
+	private static ByteArrayOutputStream matrixCreationResponse;
+	
+	private static InputStream addItemRequest;
+	private static ByteArrayOutputStream addItemResponse;
+	
+	private static InputStream queryRequest;
+	private static ByteArrayOutputStream queryResponse;
+	
     @BeforeClass
     public static void createInput() throws IOException {
-        // TODO: set up your sample input object here.
-        input = "CreateMatrix";
+        // Creation of input streams
+    		
+    	 matrixCreationRequest = new ByteArrayInputStream(
+                 "{\"queryStringParameters\":{\"operation\":createMatrix,\"N\":4}}".getBytes());
+    	 matrixCreationResponse = new ByteArrayOutputStream();
+    	 
+    	 addItemRequest = new ByteArrayInputStream(
+                 "{\"queryStringParameters\":{\"operation\":addItem,\"pos\":112,\"value\":4,\"matrixName\":hgt}}".getBytes());
+    	 addItemResponse = new ByteArrayOutputStream();
+    	 
+    	 queryRequest = new ByteArrayInputStream(
+    			 "{\"queryStringParameters\":{\"operation\":query,\"pos1\":111,\"pos2\":333,\"matrixName\":hgt}}".getBytes());
+    	 queryResponse = new ByteArrayOutputStream();
     }
 
     private Context createContext() {
@@ -31,13 +53,19 @@ public class CubeSumationTest {
     }
 
     @Test
-    public void testCubeSumation() {
-        CubeSumation handler = new CubeSumation();
+    public void testCubeSumation() throws IOException {
+        CubeSumation cube = new CubeSumation();
         Context ctx = createContext();
 
-        String output = handler.handleRequest(input, ctx);
+        cube.handleRequest(matrixCreationRequest, matrixCreationResponse, ctx);
+        cube.handleRequest(addItemRequest, addItemResponse, ctx);
+        cube.handleRequest(queryRequest, queryResponse, ctx);
+        
+        byte[] byteArray = queryResponse.toByteArray();
 
-        // TODO: validate output here if needed.
-        Assert.assertEquals("4", output);
+        assertEquals(
+                "{\"headers\":{\"Content-Type\":\"application/json\"},\"body\":\"{\\\"result\\\":4}\",\"statusCode\":\"200\"}",
+                new String(byteArray)
+            );
     }
 }

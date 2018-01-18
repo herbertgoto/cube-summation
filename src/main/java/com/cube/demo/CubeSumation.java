@@ -47,17 +47,16 @@ public class CubeSumation implements RequestStreamHandler {
 		JSONObject headerJson = new JSONObject();
 		headerJson.put("Content-Type", "application/json");
 
-		
-
 		try {
 			JSONObject params = requestJson.getJSONObject("queryStringParameters");
 
 			if (params.getString("operation").equals("createMatrix")) {
 				
 				String matrixName = "matrix" + ThreadLocalRandom.current().nextInt();
-				createMatrix(params.getString(matrixName));
-				populateMatrix(params.getInt("N"), params.getString(matrixName));
-
+				//String matrixName = "hgt";			// Used for test purposes
+				createMatrix(matrixName);
+				populateMatrix(params.getInt("N"), matrixName);
+				
 				responseBody.put("matrixName", matrixName);
 				responseJson.put("statusCode", "200");
 			} else if (params.getString("operation").equals("addItem")) {
@@ -66,9 +65,8 @@ public class CubeSumation implements RequestStreamHandler {
 				responseBody.put("result", "Item added.");
 				responseJson.put("statusCode", "200");
 			} else if (params.getString("operation").equals("query")) {
-				queryMatrix(params.getInt("pos1"), params.getInt("pos2"), params.getString("matrixName"));
 				
-				responseBody.put("result", "Item added.");
+				responseBody.put("result", queryMatrix(params.getInt("pos1"), params.getInt("pos2"), params.getString("matrixName")));
 				responseJson.put("statusCode", "200");
 			}
 		} catch (JSONException e) {
@@ -76,11 +74,11 @@ public class CubeSumation implements RequestStreamHandler {
 			responseBody.put("message", "error");
 			responseJson.put("statusCode", "400");
 		}
-
+		
 		// Assemble the response.
 		responseJson.put("body", responseBody.toString());
 		responseJson.put("headers", headerJson);
-
+		
 		OutputStreamWriter writer = new OutputStreamWriter(outputStream, "UTF-8");
 		writer.write(responseJson.toString());
 		writer.close();
@@ -135,7 +133,7 @@ public class CubeSumation implements RequestStreamHandler {
 						int index = Integer.valueOf(String.valueOf(i) + String.valueOf(j) + String.valueOf(k));
 
 						table.putItem(new Item().withPrimaryKey("id", 1, "pos", index).withNumber("val", 0));
-						// System.out.println("PutItem succeeded: " + index + " " + 0);
+						 System.out.println("PutItem succeeded: " + index + " " + 0);
 						// id++;
 
 					} catch (Exception e) {
@@ -176,7 +174,7 @@ public class CubeSumation implements RequestStreamHandler {
 	}
 
 	// Query matrix
-	private void queryMatrix(int initIndex, int endIndex, String matrixName) {
+	private int queryMatrix(int initIndex, int endIndex, String matrixName) {
 
 		AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().withEndpointConfiguration(
 				new AwsClientBuilder.EndpointConfiguration("http://localhost:8000", "us-east-1")).build();
@@ -204,14 +202,14 @@ public class CubeSumation implements RequestStreamHandler {
 
 				sum = sum + item.getNumber("val").intValue();
 
-			}
-
-			System.out.println(sum);
+			}	
 
 		} catch (Exception e) {
 			System.err.println("Unable to query items!");
 			System.err.println(e.getMessage());
 		}
+		
+		return sum;
 
 	}
 
