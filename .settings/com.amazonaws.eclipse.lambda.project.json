@@ -1,0 +1,1 @@
+{"lastDeploymentHandler":"com.cube.demo.CubeSumation","lastInvokeHandler":null,"handlerMetadata":{"com.cube.demo.CubeSumation":{"deployment":{"regionId":"us-east-1","awsLambdaFunctionName":"CubeSummation","awsIamRoleName":"lambda-exec-role","awsS3BucketName":"rappidemolambda","memory":0,"timeout":0},"invoke":null}},"lastInvokedHandlerDeployed":false}
