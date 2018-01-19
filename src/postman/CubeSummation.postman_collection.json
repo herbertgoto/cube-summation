@@ -1,0 +1,188 @@
+{
+	"info": {
+		"name": "CubeSummation",
+		"_postman_id": "38490095-20c0-9b2d-54fa-e26a3e69bf60",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "matrixUpdate",
+			"request": {
+				"auth": {
+					"type": "awsv4",
+					"awsv4": [
+						{
+							"key": "secretKey",
+							"value": "uQKQD9Xg2NH9h3EID44PYkgO6+chopAPTaOP2TD4",
+							"type": "string"
+						},
+						{
+							"key": "accessKey",
+							"value": "AKIAIWXHJJMIKUYAMGZQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://5w7bfcyrpd.execute-api.us-east-1.amazonaws.com/prod?operation=addItem&pos=222&value=4&matrixName=hgt233",
+					"protocol": "https",
+					"host": [
+						"5w7bfcyrpd",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"prod"
+					],
+					"query": [
+						{
+							"key": "operation",
+							"value": "addItem",
+							"equals": true
+						},
+						{
+							"key": "pos",
+							"value": "222",
+							"equals": true
+						},
+						{
+							"key": "value",
+							"value": "4",
+							"equals": true
+						},
+						{
+							"key": "matrixName",
+							"value": "hgt233",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "matrixCreation",
+			"request": {
+				"auth": {
+					"type": "awsv4",
+					"awsv4": [
+						{
+							"key": "secretKey",
+							"value": "uQKQD9Xg2NH9h3EID44PYkgO6+chopAPTaOP2TD4",
+							"type": "string"
+						},
+						{
+							"key": "accessKey",
+							"value": "AKIAIWXHJJMIKUYAMGZQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://5w7bfcyrpd.execute-api.us-east-1.amazonaws.com/prod?operation=createMatrix&N=4&matrixName=hgt2334",
+					"protocol": "https",
+					"host": [
+						"5w7bfcyrpd",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"prod"
+					],
+					"query": [
+						{
+							"key": "operation",
+							"value": "createMatrix",
+							"equals": true
+						},
+						{
+							"key": "N",
+							"value": "4",
+							"equals": true
+						},
+						{
+							"key": "matrixName",
+							"value": "hgt2334",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "query",
+			"request": {
+				"auth": {
+					"type": "awsv4",
+					"awsv4": [
+						{
+							"key": "secretKey",
+							"value": "uQKQD9Xg2NH9h3EID44PYkgO6+chopAPTaOP2TD4",
+							"type": "string"
+						},
+						{
+							"key": "accessKey",
+							"value": "AKIAIWXHJJMIKUYAMGZQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://5w7bfcyrpd.execute-api.us-east-1.amazonaws.com/prod?operation=query&pos1=111&pos2=222&matrixName=hgt233",
+					"protocol": "https",
+					"host": [
+						"5w7bfcyrpd",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"prod"
+					],
+					"query": [
+						{
+							"key": "operation",
+							"value": "query",
+							"equals": true
+						},
+						{
+							"key": "pos1",
+							"value": "111",
+							"equals": true
+						},
+						{
+							"key": "pos2",
+							"value": "222",
+							"equals": true
+						},
+						{
+							"key": "matrixName",
+							"value": "hgt233",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
