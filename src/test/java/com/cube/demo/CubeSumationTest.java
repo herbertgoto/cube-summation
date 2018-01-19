@@ -68,6 +68,7 @@ public class CubeSumationTest {
                 + "\"Access-Control-Allow-Credentials\":\"true\","
                 + "\"Access-Control-Allow-Headers\":"
                 + "\"Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token\","
+                + "\"Access-Control-Allow-Methods\":\"OPTIONS,POST\","
                 + "\"Content-Type\":\"application/json\"},\"body\":\"{\\\"result\\\":4}\",\"statusCode\":\"200\"}",
                 new String(byteArray)
             );
