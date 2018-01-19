@@ -31,15 +31,15 @@ public class CubeSumationTest {
         // Creation of input streams
     		
     	 matrixCreationRequest = new ByteArrayInputStream(
-                 "{\"queryStringParameters\":{\"operation\":createMatrix,\"N\":4}}".getBytes());
+                 "{\"queryStringParameters\":{\"operation\":createMatrix,\"N\":4,\"matrixName\":hgt23}}".getBytes());
     	 matrixCreationResponse = new ByteArrayOutputStream();
     	 
     	 addItemRequest = new ByteArrayInputStream(
-                 "{\"queryStringParameters\":{\"operation\":addItem,\"pos\":112,\"value\":4,\"matrixName\":hgt}}".getBytes());
+                 "{\"queryStringParameters\":{\"operation\":addItem,\"pos\":112,\"value\":4,\"matrixName\":hgt23}}".getBytes());
     	 addItemResponse = new ByteArrayOutputStream();
     	 
     	 queryRequest = new ByteArrayInputStream(
-    			 "{\"queryStringParameters\":{\"operation\":query,\"pos1\":111,\"pos2\":333,\"matrixName\":hgt}}".getBytes());
+    			 "{\"queryStringParameters\":{\"operation\":query,\"pos1\":111,\"pos2\":333,\"matrixName\":hgt23}}".getBytes());
     	 queryResponse = new ByteArrayOutputStream();
     }
 

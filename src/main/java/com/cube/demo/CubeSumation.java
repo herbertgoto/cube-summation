@@ -52,12 +52,12 @@ public class CubeSumation implements RequestStreamHandler {
 
 			if (params.getString("operation").equals("createMatrix")) {
 				
-				String matrixName = "matrix" + ThreadLocalRandom.current().nextInt();
+				//String matrixName = "matrix" + ThreadLocalRandom.current().nextInt();
 				//String matrixName = "hgt";			// Used for test purposes
-				createMatrix(matrixName);
-				populateMatrix(params.getInt("N"), matrixName);
+				createMatrix(params.getString("matrixName"));
+				populateMatrix(params.getInt("N"), params.getString("matrixName"));
 				
-				responseBody.put("matrixName", matrixName);
+				responseBody.put("matrixName", params.getString("matrixName"));
 				responseJson.put("statusCode", "200");
 			} else if (params.getString("operation").equals("addItem")) {
 				updateItem(params.getInt("pos"), params.getInt("value"), params.getString("matrixName"));
