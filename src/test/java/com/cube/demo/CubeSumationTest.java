@@ -31,15 +31,15 @@ public class CubeSumationTest {
         // Creation of input streams
     		
     	 matrixCreationRequest = new ByteArrayInputStream(
-                 "{\"queryStringParameters\":{\"operation\":createMatrix,\"N\":4,\"matrixName\":hgt23}}".getBytes());
+                 "{\"queryStringParameters\":{\"operation\":createMatrix,\"N\":4,\"matrixName\":hgt2305}}".getBytes());
     	 matrixCreationResponse = new ByteArrayOutputStream();
     	 
     	 addItemRequest = new ByteArrayInputStream(
-                 "{\"queryStringParameters\":{\"operation\":addItem,\"pos\":112,\"value\":4,\"matrixName\":hgt23}}".getBytes());
+                 "{\"queryStringParameters\":{\"operation\":addItem,\"pos\":112,\"value\":4,\"matrixName\":hgt2305}}".getBytes());
     	 addItemResponse = new ByteArrayOutputStream();
     	 
     	 queryRequest = new ByteArrayInputStream(
-    			 "{\"queryStringParameters\":{\"operation\":query,\"pos1\":111,\"pos2\":333,\"matrixName\":hgt23}}".getBytes());
+    			 "{\"queryStringParameters\":{\"operation\":query,\"pos1\":111,\"pos2\":333,\"matrixName\":hgt2305}}".getBytes());
     	 queryResponse = new ByteArrayOutputStream();
     }
 
@@ -64,7 +64,11 @@ public class CubeSumationTest {
         byte[] byteArray = queryResponse.toByteArray();
 
         assertEquals(
-                "{\"headers\":{\"Content-Type\":\"application/json\"},\"body\":\"{\\\"result\\\":4}\",\"statusCode\":\"200\"}",
+                "{\"headers\":{\"Access-Control-Allow-Origin\":\"*\","
+                + "\"Access-Control-Allow-Credentials\":\"true\","
+                + "\"Access-Control-Allow-Headers\":"
+                + "\"Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token\","
+                + "\"Content-Type\":\"application/json\"},\"body\":\"{\\\"result\\\":4}\",\"statusCode\":\"200\"}",
                 new String(byteArray)
             );
     }

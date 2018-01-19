@@ -46,7 +46,10 @@ public class CubeSumation implements RequestStreamHandler {
 		// Headers
 		JSONObject headerJson = new JSONObject();
 		headerJson.put("Content-Type", "application/json");
-
+		headerJson.put("Access-Control-Allow-Origin", "*");
+		headerJson.put("Access-Control-Allow-Headers", "Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token");
+		headerJson.put("Access-Control-Allow-Credentials", "true");
+		
 		try {
 			JSONObject params = requestJson.getJSONObject("queryStringParameters");
 
