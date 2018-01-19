@@ -14,12 +14,12 @@
 					"awsv4": [
 						{
 							"key": "secretKey",
-							"value": "uQKQD9Xg2NH9h3EID44PYkgO6+chopAPTaOP2TD4",
+							"value": "",
 							"type": "string"
 						},
 						{
 							"key": "accessKey",
-							"value": "AKIAIWXHJJMIKUYAMGZQ",
+							"value": "",
 							"type": "string"
 						}
 					]
@@ -75,12 +75,12 @@
 					"awsv4": [
 						{
 							"key": "secretKey",
-							"value": "uQKQD9Xg2NH9h3EID44PYkgO6+chopAPTaOP2TD4",
+							"value": "",
 							"type": "string"
 						},
 						{
 							"key": "accessKey",
-							"value": "AKIAIWXHJJMIKUYAMGZQ",
+							"value": "",
 							"type": "string"
 						}
 					]
@@ -89,7 +89,7 @@
 				"header": [],
 				"body": {},
 				"url": {
-					"raw": "https://5w7bfcyrpd.execute-api.us-east-1.amazonaws.com/prod?operation=createMatrix&N=4&matrixName=hgt2334",
+					"raw": "https://5w7bfcyrpd.execute-api.us-east-1.amazonaws.com/prod?operation=createMatrix&N=4&matrixName=hgt23345",
 					"protocol": "https",
 					"host": [
 						"5w7bfcyrpd",
@@ -114,7 +114,7 @@
 						},
 						{
 							"key": "matrixName",
-							"value": "hgt2334",
+							"value": "hgt23345",
 							"equals": true
 						}
 					]
@@ -131,12 +131,12 @@
 					"awsv4": [
 						{
 							"key": "secretKey",
-							"value": "uQKQD9Xg2NH9h3EID44PYkgO6+chopAPTaOP2TD4",
+							"value": "",
 							"type": "string"
 						},
 						{
 							"key": "accessKey",
-							"value": "AKIAIWXHJJMIKUYAMGZQ",
+							"value": "",
 							"type": "string"
 						}
 					]
