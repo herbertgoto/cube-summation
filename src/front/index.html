@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<title> Cube Summation </title>
+		<meta name="description" content="">
+		<meta name="author" content="">
+			
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		
+		<!-- #CSS Links -->
+		<!-- Basic Styles -->
+		<link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" media="screen" href="css/font-awesome.min.css">
+
+		<!-- SmartAdmin Styles : Caution! DO NOT change the order -->
+		<link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-production-plugins.min.css">
+		<link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-production.min.css">
+		<link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-skins.min.css">
+
+		<!-- SmartAdmin RTL Support -->
+		<link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-rtl.min.css"> 
+
+		<!-- We recommend you use "your_style.css" to override SmartAdmin
+		     specific styles this will also ensure you retrain your customization with each SmartAdmin update.
+		<link rel="stylesheet" type="text/css" media="screen" href="css/your_style.css"> -->
+
+		<!-- Demo purpose only: goes with demo.js, you can delete this css when designing your own WebApp -->
+		<link rel="stylesheet" type="text/css" media="screen" href="css/demo.min.css">
+
+		<!-- #FAVICONS -->
+		<link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="img/favicon/favicon.ico" type="image/x-icon">
+
+		<!-- #GOOGLE FONT -->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700">
+
+
+	</head>
+	
+	<body class="">
+
+
+		<!-- #NAVIGATION -->
+		<!-- Left panel : Navigation area -->
+		<!-- Note: This width of the aside area can be adjusted through LESS variables -->
+		<aside id="left-panel">	
+
+		</aside>
+		<!-- END NAVIGATION -->
+
+		<!-- MAIN PANEL -->
+		<div id="main" role="main">
+
+			<!-- RIBBON -->
+			<div id="ribbon">
+
+				<!-- breadcrumb -->
+				<ol class="breadcrumb">
+					<li>Cube Summation Problem</li>
+				</ol>
+				<!-- end breadcrumb -->
+			</div>
+			<!-- END RIBBON -->
+			
+			
+
+			<!-- MAIN CONTENT -->
+			<div id="content">
+				
+				<!--
+					The ID "widget-grid" will start to initialize all widgets below 
+					You do not need to use widgets if you dont want to. Simply remove 
+					the <section></section> and you can use wells or panels instead 
+					-->
+				
+					<!-- widget grid -->
+					<section id="widget-grid" class="">
+
+						<!-- row -->
+						<div class="row">
+
+		
+							<!-- NEW WIDGET ROW START -->
+							<div class="col-sm-6">
+
+								<!-- Widget ID (each widget will need unique ID)-->
+								<div class="jarviswidget" id="wid-id-3" data-widget-colorbutton="false"	data-widget-editbutton="false" data-widget-deletebutton="false" data-widget-sortable="false">
+									<!-- widget options:
+									usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+
+									data-widget-colorbutton="false"
+									data-widget-editbutton="false"
+									data-widget-togglebutton="false"
+									data-widget-deletebutton="false"
+									data-widget-fullscreenbutton="false"
+									data-widget-custombutton="false"
+									data-widget-collapsed="true"
+									data-widget-sortable="false"
+
+									-->
+							<!--		<header>
+										<h2>#productForm</h2>
+									</header> -->
+
+									<!-- widget div-->
+
+									<div>
+										<!-- widget edit box -->
+										<div class="jarviswidget-editbox">
+											<!-- This area used as dropdown edit box -->
+											<input class="form-control" type="text">
+										</div>
+										<!-- end widget edit box -->
+
+										<!-- widget content -->
+										<div class="widget-body">
+
+											<form id="productForm" class="form-horizontal">
+
+												<fieldset>
+													<legend>
+														Cube Summation variables
+													</legend>
+								<!--					<div class="form-group">
+														<label class="col-xs-2 col-lg-3 control-label"># of tests</label>
+														<div class="col-xs-9 col-lg-6 inputGroupContainer">
+															<div class="input-group">
+																<input type="text" class="form-control" name="tests" id="tests-id"/>
+															</div>
+														</div>
+													</div> -->
+
+													<div class="form-group">
+															<label class="col-xs-2 col-lg-3 control-label">Cube size</label>
+															<div class="col-xs-9 col-lg-6 inputGroupContainer">
+																<div class="input-group">
+																	<input type="text" class="form-control" name="size" id="size-id"/>
+																</div>
+															</div>
+														</div>
+												</fieldset>
+
+											<!--	<fieldset>
+													<div class="form-group">
+														<label class="col-xs-2 col-lg-3 control-label">Matrix size</label>
+														<div class="col-xs-9 col-lg-6 inputGroupContainer">
+															<div class="input-group">
+																<input type="text" class="form-control" name="size" id="size-id"/>
+															</div>
+														</div>
+													</div>
+												</fieldset>-->
+
+												<fieldset>
+													<div class="form-group">
+														<label class="col-xs-2 col-lg-3 control-label"># of operations</label>
+														<div class="col-xs-9 col-lg-6 inputGroupContainer">
+															<div class="input-group">
+																<input type="text" class="form-control" name="ops" id="ops-id"/>
+															</div>
+														</div>
+													</div>
+												</fieldset>
+
+												<fieldset>
+														<div class="form-group">
+															<label class="control-label">Operations</label>
+															<textarea class="form-control" name="review" rows="10" id="operaciones-id" disabled></textarea>
+														</div>
+												</fieldset>
+
+												<div class="form-actions">
+													<div class="row">
+														<div class="col-md-12">
+															<button class="btn btn-default" type="button" onclick="createCube()">
+																<i class="fa fa-eye"></i>
+																Generate Cube
+															</button>
+															<button class="btn btn-default" type="button" onclick="executeOps()" disabled id="execute-button">
+																<i class="fa fa-eye"></i>
+																Execute tests
+															</button>
+														</div>
+													</div>
+												</div>
+
+												<fieldset>
+													<legend>
+														Results
+													</legend>
+													<div class="col-md-12">
+														<div class="row" id="results-id">
+																
+														
+
+							
+														</div>
+													</div>
+												</fieldset>
+											</form>
+
+										</div>
+										<!-- end widget content -->
+
+									</div>
+									<!-- end widget div -->
+
+								</div>
+								<!-- end widget -->
+
+								<!--<script type="text/javascript">
+
+									function createTests(){
+										document.write('hello world');
+									}
+
+								</script>-->
+
+							</div>
+							<!-- WIDGET ROW END -->
+
+							
+
+						</div>
+
+						<!-- end row -->
+
+					</section>
+					<!-- end widget grid -->
+
+			</div>
+			<!-- END MAIN CONTENT -->
+
+		</div>
+		<!-- END MAIN PANEL -->
+
+		<!-- SHORTCUT AREA : With large tiles (activated via clicking user name tag)
+		Note: These tiles are completely responsive,
+		you can add as many as you like
+		-->
+		<div id="shortcut">
+			<ul>
+				<li>
+					<a href="inbox.html" class="jarvismetro-tile big-cubes bg-color-blue"> <span class="iconbox"> <i class="fa fa-envelope fa-4x"></i> <span>Mail <span class="label pull-right bg-color-darken">14</span></span> </span> </a>
+				</li>
+				<li>
+					<a href="calendar.html" class="jarvismetro-tile big-cubes bg-color-orangeDark"> <span class="iconbox"> <i class="fa fa-calendar fa-4x"></i> <span>Calendar</span> </span> </a>
+				</li>
+				<li>
+					<a href="gmap-xml.html" class="jarvismetro-tile big-cubes bg-color-purple"> <span class="iconbox"> <i class="fa fa-map-marker fa-4x"></i> <span>Maps</span> </span> </a>
+				</li>
+				<li>
+					<a href="invoice.html" class="jarvismetro-tile big-cubes bg-color-blueDark"> <span class="iconbox"> <i class="fa fa-book fa-4x"></i> <span>Invoice <span class="label pull-right bg-color-darken">99</span></span> </span> </a>
+				</li>
+				<li>
+					<a href="gallery.html" class="jarvismetro-tile big-cubes bg-color-greenLight"> <span class="iconbox"> <i class="fa fa-picture-o fa-4x"></i> <span>Gallery </span> </span> </a>
+				</li>
+				<li>
+					<a href="profile.html" class="jarvismetro-tile big-cubes selected bg-color-pinkDark"> <span class="iconbox"> <i class="fa fa-user fa-4x"></i> <span>My Profile </span> </span> </a>
+				</li>
+			</ul>
+		</div>
+		<!-- END SHORTCUT AREA -->
+
+		<!--================================================== -->
+
+		<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
+		<script data-pace-options='{ "restartOnRequestAfter": true }' src="js/plugin/pace/pace.min.js"></script>
+
+		<!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script>
+			if (!window.jQuery) {
+				document.write('<script src="js/libs/jquery-3.2.1.min.js"><\/script>');
+			}
+		</script>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+		<script>
+			if (!window.jQuery.ui) {
+				document.write('<script src="js/libs/jquery-ui.min.js"><\/script>');
+			}
+		</script>
+
+		<!-- IMPORTANT: APP CONFIG -->
+		<script src="js/app.config.js"></script>
+
+		<!-- JS TOUCH : include this plugin for mobile drag / drop touch events-->
+		<script src="js/plugin/jquery-touch/jquery.ui.touch-punch.min.js"></script> 
+
+		<!-- BOOTSTRAP JS -->
+		<script src="js/bootstrap/bootstrap.min.js"></script>
+
+		<!-- CUSTOM NOTIFICATION -->
+		<script src="js/notification/SmartNotification.min.js"></script>
+
+		<!-- JARVIS WIDGETS -->
+		<script src="js/smartwidgets/jarvis.widget.min.js"></script>
+
+		<!-- EASY PIE CHARTS -->
+		<script src="js/plugin/easy-pie-chart/jquery.easy-pie-chart.min.js"></script>
+
+		<!-- SPARKLINES -->
+		<script src="js/plugin/sparkline/jquery.sparkline.min.js"></script>
+
+		<!-- JQUERY VALIDATE -->
+		<script src="js/plugin/jquery-validate/jquery.validate.min.js"></script>
+
+		<!-- JQUERY MASKED INPUT -->
+		<script src="js/plugin/masked-input/jquery.maskedinput.min.js"></script>
+
+		<!-- JQUERY SELECT2 INPUT -->
+		<script src="js/plugin/select2/select2.min.js"></script>
+
+		<!-- JQUERY UI + Bootstrap Slider -->
+		<script src="js/plugin/bootstrap-slider/bootstrap-slider.min.js"></script>
+
+		<!-- browser msie issue fix -->
+		<script src="js/plugin/msie-fix/jquery.mb.browser.min.js"></script>
+
+		<!-- FastClick: For mobile devices -->
+		<script src="js/plugin/fastclick/fastclick.min.js"></script>
+
+		<!--[if IE 8]>
+
+		<h1>Your browser is out of date, please update your browser by going to www.microsoft.com/download</h1>
+
+		<![endif]-->
+
+		<!-- Demo purpose only -->
+		<script src="js/demo.min.js"></script>
+
+		<!-- MAIN APP JS FILE -->
+		<script src="js/app.min.js"></script>
+
+		<!-- ENHANCEMENT PLUGINS : NOT A REQUIREMENT -->
+		<!-- Voice command : plugin -->
+		<script src="js/speech/voicecommand.min.js"></script>
+
+		<!-- SmartChat UI : plugin -->
+		<script src="js/smart-chat-ui/smart.chat.ui.min.js"></script>
+		<script src="js/smart-chat-ui/smart.chat.manager.min.js"></script>
+
+		<!-- PAGE RELATED PLUGIN(S) 
+		<script src="..."></script>-->
+
+		<script src="js/plugin/bootstrapvalidator/bootstrapValidator.min.js"></script>
+
+		<script type="text/javascript" src="js/lib/axios/dist/axios.standalone.js"></script>
+		<script type="text/javascript" src="js/lib/CryptoJS/rollups/hmac-sha256.js"></script>
+		<script type="text/javascript" src="js/lib/CryptoJS/rollups/sha256.js"></script>
+		<script type="text/javascript" src="js/lib/CryptoJS/components/hmac.js"></script>
+		<script type="text/javascript" src="js/lib/CryptoJS/components/enc-base64.js"></script>
+		<script type="text/javascript" src="js/lib/url-template/url-template.js"></script>
+		<script type="text/javascript" src="js/lib/apiGatewayCore/sigV4Client.js"></script>
+		<script type="text/javascript" src="js/lib/apiGatewayCore/apiGatewayClient.js"></script>
+		<script type="text/javascript" src="js/lib/apiGatewayCore/simpleHttpClient.js"></script>
+		<script type="text/javascript" src="js/lib/apiGatewayCore/utils.js"></script>
+		<script type="text/javascript" src="js/apigClient.js"></script>
+
+		<script>
+
+			$(document).ready(function() {
+			 	
+				/* DO NOT REMOVE : GLOBAL FUNCTIONS!
+				 *
+				 * pageSetUp(); WILL CALL THE FOLLOWING FUNCTIONS
+				 *
+				 * // activate tooltips
+				 * $("[rel=tooltip]").tooltip();
+				 *
+				 * // activate popovers
+				 * $("[rel=popover]").popover();
+				 *
+				 * // activate popovers with hover states
+				 * $("[rel=popover-hover]").popover({ trigger: "hover" });
+				 *
+				 * // activate inline charts
+				 * runAllCharts();
+				 *
+				 * // setup widgets
+				 * setup_widgets_desktop();
+				 *
+				 * // run form elements
+				 * runAllForms();
+				 *
+				 ********************************
+				 *
+				 * pageSetUp() is needed whenever you load a page.
+				 * It initializes and checks for all basic elements of the page
+				 * and makes rendering easier.
+				 *
+				 */
+				
+				 pageSetUp();
+				 
+				/*
+				 * ALL PAGE RELATED SCRIPTS CAN GO BELOW HERE
+				 * eg alert("my home function");
+				 * 
+				 * var pagefunction = function() {
+				 *   ...
+				 * }
+				 * loadScript("js/plugin/_PLUGIN_NAME_.js", pagefunction);
+				 * 
+				 * TO LOAD A SCRIPT:
+				 * var pagefunction = function (){ 
+				 *  loadScript(".../plugin.js", run_after_loaded);	
+				 * }
+				 * 
+				 * OR
+				 * 
+				 * loadScript(".../plugin.js", run_after_loaded);
+				 */
+
+				// pagefunction
+
+				// clears the variable if left blank
+
+				// movie form
+				$('#movieForm').bootstrapValidator({
+					feedbackIcons : {
+						valid : 'glyphicon glyphicon-ok',
+						invalid : 'glyphicon glyphicon-remove',
+						validating : 'glyphicon glyphicon-refresh'
+					},
+					fields : {
+						title : {
+							group : '.col-md-8',
+							validators : {
+								notEmpty : {
+									message : 'The title is required'
+								},
+								stringLength : {
+									max : 200,
+									message : 'The title must be less than 200 characters long'
+								}
+							}
+						},
+						genre : {
+							group : '.col-md-4',
+							validators : {
+								notEmpty : {
+									message : 'The genre is required'
+								}
+							}
+						},
+						director : {
+							group : '.col-md-4',
+							validators : {
+								notEmpty : {
+									message : 'The director name is required'
+								},
+								stringLength : {
+									max : 80,
+									message : 'The director name must be less than 80 characters long'
+								}
+							}
+						},
+						writer : {
+							group : '.col-md-4',
+							validators : {
+								notEmpty : {
+									message : 'The writer name is required'
+								},
+								stringLength : {
+									max : 80,
+									message : 'The writer name must be less than 80 characters long'
+								}
+							}
+						},
+						producer : {
+							group : '.col-md-4',
+							validators : {
+								notEmpty : {
+									message : 'The producer name is required'
+								},
+								stringLength : {
+									max : 80,
+									message : 'The producer name must be less than 80 characters long'
+								}
+							}
+						},
+						website : {
+							group : '.col-md-6',
+							validators : {
+								notEmpty : {
+									message : 'The website address is required'
+								},
+								uri : {
+									message : 'The website address is not valid'
+								}
+							}
+						},
+						trailer : {
+							group : '.col-md-6',
+							validators : {
+								notEmpty : {
+									message : 'The trailer link is required'
+								},
+								uri : {
+									message : 'The trailer link is not valid'
+								}
+							}
+						},
+						review : {
+							// The group will be set as default (.form-group)
+							validators : {
+								stringLength : {
+									max : 500,
+									message : 'The review must be less than 500 characters long'
+								}
+							}
+						},
+						rating : {
+							// The group will be set as default (.form-group)
+							validators : {
+								notEmpty : {
+									message : 'The rating is required'
+								}
+							}
+						}
+					}
+				});
+				// end movie form
+
+				// toggle form
+
+				$('#togglingForm').bootstrapValidator({
+					feedbackIcons : {
+						valid : 'glyphicon glyphicon-ok',
+						invalid : 'glyphicon glyphicon-remove',
+						validating : 'glyphicon glyphicon-refresh'
+					},
+					fields : {
+						firstName : {
+							validators : {
+								notEmpty : {
+									message : 'The first name is required'
+								}
+							}
+						},
+						lastName : {
+							validators : {
+								notEmpty : {
+									message : 'The last name is required'
+								}
+							}
+						},
+						company : {
+							validators : {
+								notEmpty : {
+									message : 'The company name is required'
+								}
+							}
+						},
+						// These fields will be validated when being visible
+						job : {
+							validators : {
+								notEmpty : {
+									message : 'The job title is required'
+								}
+							}
+						},
+						department : {
+							validators : {
+								notEmpty : {
+									message : 'The department name is required'
+								}
+							}
+						},
+						mobilePhone : {
+							validators : {
+								notEmpty : {
+									message : 'The mobile phone number is required'
+								},
+								digits : {
+									message : 'The mobile phone number is not valid'
+								}
+							}
+						},
+						// These fields will be validated when being visible
+						homePhone : {
+							validators : {
+								digits : {
+									message : 'The home phone number is not valid'
+								}
+							}
+						},
+						officePhone : {
+							validators : {
+								digits : {
+									message : 'The office phone number is not valid'
+								}
+							}
+						}
+					}
+				}).find('button[data-toggle]').on('click', function() {
+					var $target = $($(this).attr('data-toggle'));
+					// Show or hide the additional fields
+					// They will or will not be validated based on their visibilities
+					$target.toggle();
+					if (!$target.is(':visible')) {
+						// Enable the submit buttons in case additional fields are not valid
+						$('#togglingForm').data('bootstrapValidator').disableSubmitButtons(false);
+					}
+				});
+
+				// end toggle form
+
+				// button group form
+
+				$('#buttonGroupForm').bootstrapValidator({
+					excluded : ':disabled',
+					feedbackIcons : {
+						valid : 'glyphicon glyphicon-ok',
+						invalid : 'glyphicon glyphicon-remove',
+						validating : 'glyphicon glyphicon-refresh'
+					},
+					fields : {
+						gender : {
+							validators : {
+								notEmpty : {
+									message : 'The gender is required'
+								}
+							}
+						},
+						'languages[]' : {
+							validators : {
+								choice : {
+									min : 1,
+									max : 2,
+									message : 'Please choose 1 - 2 languages you can speak'
+								}
+							}
+						}
+					}
+				});
+
+				// end button group form
+
+				// product form
+
+				$('#productForm').bootstrapValidator({
+					feedbackIcons : {
+						valid : 'glyphicon glyphicon-ok',
+						invalid : 'glyphicon glyphicon-remove',
+						validating : 'glyphicon glyphicon-refresh'
+					},
+					fields : {
+						tests : {
+							validators : {
+								notEmpty : {
+									message : 'The number of tests is required'
+								},
+								numeric : {
+									message : 'The number of tests must be a number'
+								}
+							}
+						},
+						size : {
+							validators : {
+								notEmpty : {
+									message : 'The matrix size is required'
+								},
+								numeric : {
+									message : 'The matrix size must be a number'
+								}
+							}
+						},
+						ops : {
+							validators : {
+								notEmpty : {
+									message : 'The number of operations is required'
+								},
+								numeric : {
+									message : 'The number of operations must be a number'
+								}
+							}
+						}
+					}
+				});
+
+				// end product form
+
+				// profile form
+
+				$('#profileForm').bootstrapValidator({
+					feedbackIcons : {
+						valid : 'glyphicon glyphicon-ok',
+						invalid : 'glyphicon glyphicon-remove',
+						validating : 'glyphicon glyphicon-refresh'
+					},
+					fields : {
+						email : {
+							validators : {
+								notEmpty : {
+									message : 'The email address is required'
+								},
+								emailAddress : {
+									message : 'The email address is not valid'
+								}
+							}
+						},
+						password : {
+							validators : {
+								notEmpty : {
+									message : 'The password is required'
+								}
+							}
+						}
+					}
+				});
+
+				// end profile form
+
+				//attributeForm
+				$('#attributeForm').bootstrapValidator();
+				// end attributeForm
+				
+				// contactForm
+				$('#contactForm').bootstrapValidator({
+					container : '#messages',
+					feedbackIcons : {
+						valid : 'glyphicon glyphicon-ok',
+						invalid : 'glyphicon glyphicon-remove',
+						validating : 'glyphicon glyphicon-refresh'
+					},
+					fields : {
+						fullName : {
+							validators : {
+								notEmpty : {
+									message : 'The full name is required and cannot be empty'
+								}
+							}
+						},
+						email : {
+							validators : {
+								notEmpty : {
+									message : 'The email address is required and cannot be empty'
+								},
+								emailAddress : {
+									message : 'The email address is not valid'
+								}
+							}
+						},
+						title : {
+							validators : {
+								notEmpty : {
+									message : 'The title is required and cannot be empty'
+								},
+								stringLength : {
+									max : 100,
+									message : 'The title must be less than 100 characters long'
+								}
+							}
+						},
+						content : {
+							validators : {
+								notEmpty : {
+									message : 'The content is required and cannot be empty'
+								},
+								stringLength : {
+									max : 500,
+									message : 'The content must be less than 500 characters long'
+								}
+							}
+						}
+					}
+				});
+				// end contactForm
+					
+				
+			})
+		
+		</script>
+
+		<script type="text/javascript">
+
+			var matrix = Number(new Date());
+
+			//initializa sdk for the api
+			var apigClient = apigClientFactory.newClient({
+ 					 accessKey: 'AKIAIK5O4QPGG4QUPHKA',
+  					secretKey: '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',
+				});
+
+			function createCube(){
+
+				// get data from form
+				//	var tests = document.getElementById('tests-id');
+				var size = document.getElementById('size-id');
+				var ops = document.getElementById('ops-id');
+				
+				// validate ranges
+			//	if(tests.value < 1 || tests.value > 50)
+			//		alert('The number of test cases must be between 1 and 50');
+				if(size.value < 1 || size.value > 100)
+					alert('The matriz size must be between 1 and 100');
+				if(ops.value < 1 || ops.value > 1000)
+					alert('The number of operations must be between 1 and 1000');
+				
+					// define variables to invoke API matrix creation operations
+  					var params = {
+    						operation: 'createMatrix',
+							N: '4',
+							matrixName: matrix
+					};
+
+					// define blank body
+					var body = {
+    					
+					};	
+
+					// set request headers
+					var additionalParams = {
+    					headers: {
+            				'Access-Control-Allow-Origin' : '*',
+            				'Access-Control-Allow-Headers':'*',
+            				'Access-Control-Allow-Credentials' : true,
+            				'Content-Type': 'application/json'
+        				},
+  						queryParams: {
+    						operation: 'createMatrix',
+							N: '4',
+							matrixName: matrix
+  						}
+					};
+
+					// invoke matrix creation
+					var response = apigClient.rootPost(params, body, additionalParams)
+    					.then(function(result){
+							var response = JSON.stringify(result);
+							if(response.search("\"status\":200")){
+								document.getElementById('execute-button').disabled = false;
+								document.getElementById('operaciones-id').disabled = false;
+								alert('The cube has been created, now you can introduce tests!');
+							}
+						
+    				}).catch( function(result){
+      					alert(result);
+					});
+			}
+
+			function executeOps(){
+
+				// get text area data and split text area based on lines
+				var operaciones = document.getElementById('operaciones-id').value;
+				var operacionesList = operaciones.split("\n");
+				var ops = document.getElementById('ops-id');
+
+				if(parseInt(operacionesList.length,10) > parseInt(ops.value,10)){
+					alert('The set of operations is bigger than the number of operations defined for test!');
+				} else {
+					var lastOpList = operacionesList[operacionesList.length - 1].split(" ");
+
+				// define blank body
+				var body = {
+					
+						};	
+
+				if(lastOpList[0] == "update" || lastOpList[0] == "UPDATE"){
+					var params = {
+							operation: 'addItem',
+							pos: lastOpList[1],
+							value: lastOpList[2],
+							matrixName: matrix
+						};
+
+						// set request headers
+						var additionalParams = {
+						headers: {
+							'Access-Control-Allow-Origin' : '*',
+							'Access-Control-Allow-Headers':'*',
+							'Access-Control-Allow-Credentials' : true,
+							'Content-Type': 'application/json'
+						},
+					 	 queryParams: {
+							operation: 'addItem',
+							pos: lastOpList[1],
+							value: lastOpList[2],
+							matrixName: matrix
+					  	}
+					};
+				}
+
+				if(lastOpList[0] == "query" || lastOpList[0] == "QUERY" ){
+					var params = {
+							operation: 'query',
+							pos1: lastOpList[1],
+							pos2: lastOpList[2],
+							matrixName: matrix
+						};
+
+						// set request headers
+						var additionalParams = {
+						headers: {
+							'Access-Control-Allow-Origin' : '*',
+							'Access-Control-Allow-Headers':'*',
+							'Access-Control-Allow-Credentials' : true,
+							'Content-Type': 'application/json'
+						},
+					 	 queryParams: {
+							operation: 'query',
+							pos1: lastOpList[1],
+							pos2: lastOpList[2],
+							matrixName: matrix
+					  	}
+				}
+			}
+						
+					// invoke matrix creation
+					var response = apigClient.rootPost(params, body, additionalParams)
+						.then(function(result){
+							var response = JSON.stringify(result);
+							if(lastOpList[0] == "update" || lastOpList[0] == "UPDATE"){
+								if(response.search("\"status\":200")){
+									alert('Element added successfully!');
+								}
+							}
+							if(lastOpList[0] == "query" || lastOpList[0] == "QUERY"){
+								var obj = JSON.parse(response);
+								
+
+								document.getElementById('results-id').innerHTML = document.getElementById('results-id').innerHTML + "<br>" + "<label>" + obj.data.result + "</label>";
+							}
+
+					}).catch( function(result){
+						  alert(result);
+					});
+				}
+
+				//loop operations to work on them
+				/*for(var i = 0; i < ops.value; i ++){
+
+					var elements = operacionesList[i].split(" ");
+					if(elements[0] == "update" || elements[0] == "UPDATE" ){
+						alert('Item being updated - wait 10 seconds!');
+						update(elements[1], elements[2]);
+						
+					}
+				}*/
+
+				//loop operations to work on them
+				/*for(var i = 0; i < ops.value; i ++){
+
+					var elements2 = operacionesList[i].split(" ");
+					if(elements2[0] == "query" || elements2[0] == "QUERY" ){
+						queryM(elements2[1], elements2[2]);
+					}
+
+				}*/
+			}
+
+			
+
+		/*	function update(position, val){
+				// define variables to invoke API matrix creation operations
+				var params = {
+							operation: 'addItem',
+							pos: position,
+							value: val,
+							matrixName: matrix
+						};
+
+						// define blank body
+						var body = {
+					
+						};	
+
+						// set request headers
+						var additionalParams = {
+						headers: {
+							'Access-Control-Allow-Origin' : '*',
+							'Access-Control-Allow-Headers':'*',
+							'Access-Control-Allow-Credentials' : true,
+							'Content-Type': 'application/json'
+						},
+					 	 queryParams: {
+							operation: 'addItem',
+							pos: position,
+							value: val,
+							matrixName: matrix
+					  	}
+					};
+
+					// invoke matrix creation
+					var response = apigClient.rootPost(params, body, additionalParams)
+						.then(function(result){
+							
+					}).catch( function(result){
+						  alert(result);
+					});
+			}*/
+
+		/*	function queryM (position1, position2){
+				// define variables to invoke API matrix creation operations
+				var params = {
+							operation: 'query',
+							pos1: position1,
+							pos2: position2,
+							matrixName: matrix
+						};
+
+						// define blank body
+						var body = {
+					
+						};	
+
+						// set request headers
+						var additionalParams = {
+						headers: {
+							'Access-Control-Allow-Origin' : '*',
+							'Access-Control-Allow-Headers':'*',
+							'Access-Control-Allow-Credentials' : true,
+							'Content-Type': 'application/json'
+						},
+					 	 queryParams: {
+							operation: 'query',
+							pos1: position1,
+							pos2: position2,
+							matrixName: matrix
+					  	}
+					};
+
+					// invoke matrix creation
+					var response = apigClient.rootPost(params, body, additionalParams)
+						.then(function(result){
+							var response = JSON.stringify(result);
+							alert(response);
+					}).catch( function(result){
+						  alert(result);
+					});
+			}*/
+			
+		</script>
+
+	</body>
+
+</html>
