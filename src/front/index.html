@@ -418,228 +418,6 @@
 
 				// clears the variable if left blank
 
-				// movie form
-				$('#movieForm').bootstrapValidator({
-					feedbackIcons : {
-						valid : 'glyphicon glyphicon-ok',
-						invalid : 'glyphicon glyphicon-remove',
-						validating : 'glyphicon glyphicon-refresh'
-					},
-					fields : {
-						title : {
-							group : '.col-md-8',
-							validators : {
-								notEmpty : {
-									message : 'The title is required'
-								},
-								stringLength : {
-									max : 200,
-									message : 'The title must be less than 200 characters long'
-								}
-							}
-						},
-						genre : {
-							group : '.col-md-4',
-							validators : {
-								notEmpty : {
-									message : 'The genre is required'
-								}
-							}
-						},
-						director : {
-							group : '.col-md-4',
-							validators : {
-								notEmpty : {
-									message : 'The director name is required'
-								},
-								stringLength : {
-									max : 80,
-									message : 'The director name must be less than 80 characters long'
-								}
-							}
-						},
-						writer : {
-							group : '.col-md-4',
-							validators : {
-								notEmpty : {
-									message : 'The writer name is required'
-								},
-								stringLength : {
-									max : 80,
-									message : 'The writer name must be less than 80 characters long'
-								}
-							}
-						},
-						producer : {
-							group : '.col-md-4',
-							validators : {
-								notEmpty : {
-									message : 'The producer name is required'
-								},
-								stringLength : {
-									max : 80,
-									message : 'The producer name must be less than 80 characters long'
-								}
-							}
-						},
-						website : {
-							group : '.col-md-6',
-							validators : {
-								notEmpty : {
-									message : 'The website address is required'
-								},
-								uri : {
-									message : 'The website address is not valid'
-								}
-							}
-						},
-						trailer : {
-							group : '.col-md-6',
-							validators : {
-								notEmpty : {
-									message : 'The trailer link is required'
-								},
-								uri : {
-									message : 'The trailer link is not valid'
-								}
-							}
-						},
-						review : {
-							// The group will be set as default (.form-group)
-							validators : {
-								stringLength : {
-									max : 500,
-									message : 'The review must be less than 500 characters long'
-								}
-							}
-						},
-						rating : {
-							// The group will be set as default (.form-group)
-							validators : {
-								notEmpty : {
-									message : 'The rating is required'
-								}
-							}
-						}
-					}
-				});
-				// end movie form
-
-				// toggle form
-
-				$('#togglingForm').bootstrapValidator({
-					feedbackIcons : {
-						valid : 'glyphicon glyphicon-ok',
-						invalid : 'glyphicon glyphicon-remove',
-						validating : 'glyphicon glyphicon-refresh'
-					},
-					fields : {
-						firstName : {
-							validators : {
-								notEmpty : {
-									message : 'The first name is required'
-								}
-							}
-						},
-						lastName : {
-							validators : {
-								notEmpty : {
-									message : 'The last name is required'
-								}
-							}
-						},
-						company : {
-							validators : {
-								notEmpty : {
-									message : 'The company name is required'
-								}
-							}
-						},
-						// These fields will be validated when being visible
-						job : {
-							validators : {
-								notEmpty : {
-									message : 'The job title is required'
-								}
-							}
-						},
-						department : {
-							validators : {
-								notEmpty : {
-									message : 'The department name is required'
-								}
-							}
-						},
-						mobilePhone : {
-							validators : {
-								notEmpty : {
-									message : 'The mobile phone number is required'
-								},
-								digits : {
-									message : 'The mobile phone number is not valid'
-								}
-							}
-						},
-						// These fields will be validated when being visible
-						homePhone : {
-							validators : {
-								digits : {
-									message : 'The home phone number is not valid'
-								}
-							}
-						},
-						officePhone : {
-							validators : {
-								digits : {
-									message : 'The office phone number is not valid'
-								}
-							}
-						}
-					}
-				}).find('button[data-toggle]').on('click', function() {
-					var $target = $($(this).attr('data-toggle'));
-					// Show or hide the additional fields
-					// They will or will not be validated based on their visibilities
-					$target.toggle();
-					if (!$target.is(':visible')) {
-						// Enable the submit buttons in case additional fields are not valid
-						$('#togglingForm').data('bootstrapValidator').disableSubmitButtons(false);
-					}
-				});
-
-				// end toggle form
-
-				// button group form
-
-				$('#buttonGroupForm').bootstrapValidator({
-					excluded : ':disabled',
-					feedbackIcons : {
-						valid : 'glyphicon glyphicon-ok',
-						invalid : 'glyphicon glyphicon-remove',
-						validating : 'glyphicon glyphicon-refresh'
-					},
-					fields : {
-						gender : {
-							validators : {
-								notEmpty : {
-									message : 'The gender is required'
-								}
-							}
-						},
-						'languages[]' : {
-							validators : {
-								choice : {
-									min : 1,
-									max : 2,
-									message : 'Please choose 1 - 2 languages you can speak'
-								}
-							}
-						}
-					}
-				});
-
-				// end button group form
-
 				// product form
 
 				$('#productForm').bootstrapValidator({
@@ -683,95 +461,7 @@
 				});
 
 				// end product form
-
-				// profile form
-
-				$('#profileForm').bootstrapValidator({
-					feedbackIcons : {
-						valid : 'glyphicon glyphicon-ok',
-						invalid : 'glyphicon glyphicon-remove',
-						validating : 'glyphicon glyphicon-refresh'
-					},
-					fields : {
-						email : {
-							validators : {
-								notEmpty : {
-									message : 'The email address is required'
-								},
-								emailAddress : {
-									message : 'The email address is not valid'
-								}
-							}
-						},
-						password : {
-							validators : {
-								notEmpty : {
-									message : 'The password is required'
-								}
-							}
-						}
-					}
-				});
-
-				// end profile form
-
-				//attributeForm
-				$('#attributeForm').bootstrapValidator();
-				// end attributeForm
-				
-				// contactForm
-				$('#contactForm').bootstrapValidator({
-					container : '#messages',
-					feedbackIcons : {
-						valid : 'glyphicon glyphicon-ok',
-						invalid : 'glyphicon glyphicon-remove',
-						validating : 'glyphicon glyphicon-refresh'
-					},
-					fields : {
-						fullName : {
-							validators : {
-								notEmpty : {
-									message : 'The full name is required and cannot be empty'
-								}
-							}
-						},
-						email : {
-							validators : {
-								notEmpty : {
-									message : 'The email address is required and cannot be empty'
-								},
-								emailAddress : {
-									message : 'The email address is not valid'
-								}
-							}
-						},
-						title : {
-							validators : {
-								notEmpty : {
-									message : 'The title is required and cannot be empty'
-								},
-								stringLength : {
-									max : 100,
-									message : 'The title must be less than 100 characters long'
-								}
-							}
-						},
-						content : {
-							validators : {
-								notEmpty : {
-									message : 'The content is required and cannot be empty'
-								},
-								stringLength : {
-									max : 500,
-									message : 'The content must be less than 500 characters long'
-								}
-							}
-						}
-					}
-				});
-				// end contactForm
 					
-				
 			})
 		
 		</script>
@@ -860,7 +550,7 @@
 					
 						};	
 
-				if(lastOpList[0] == "update" || lastOpList[0] == "UPDATE"){
+				if(lastOpList[0].toUpperCase() == "UPDATE"){
 					var params = {
 							operation: 'addItem',
 							pos: lastOpList[1],
@@ -885,7 +575,7 @@
 					};
 				}
 
-				if(lastOpList[0] == "query" || lastOpList[0] == "QUERY" ){
+				if(lastOpList[0].toUpperCase() == "QUERY" ){
 					var params = {
 							operation: 'query',
 							pos1: lastOpList[1],
@@ -914,12 +604,12 @@
 					var response = apigClient.rootPost(params, body, additionalParams)
 						.then(function(result){
 							var response = JSON.stringify(result);
-							if(lastOpList[0] == "update" || lastOpList[0] == "UPDATE"){
+							if(lastOpList[0].toUpperCase() == "UPDATE"){
 								if(response.search("\"status\":200")){
 									alert('Element added successfully!');
 								}
 							}
-							if(lastOpList[0] == "query" || lastOpList[0] == "QUERY"){
+							if(lastOpList[0].toUpperCase() == "QUERY"){
 								var obj = JSON.parse(response);
 								
 
@@ -930,109 +620,7 @@
 						  alert(result);
 					});
 				}
-
-				//loop operations to work on them
-				/*for(var i = 0; i < ops.value; i ++){
-
-					var elements = operacionesList[i].split(" ");
-					if(elements[0] == "update" || elements[0] == "UPDATE" ){
-						alert('Item being updated - wait 10 seconds!');
-						update(elements[1], elements[2]);
-						
-					}
-				}*/
-
-				//loop operations to work on them
-				/*for(var i = 0; i < ops.value; i ++){
-
-					var elements2 = operacionesList[i].split(" ");
-					if(elements2[0] == "query" || elements2[0] == "QUERY" ){
-						queryM(elements2[1], elements2[2]);
-					}
-
-				}*/
 			}
-
-			
-
-		/*	function update(position, val){
-				// define variables to invoke API matrix creation operations
-				var params = {
-							operation: 'addItem',
-							pos: position,
-							value: val,
-							matrixName: matrix
-						};
-
-						// define blank body
-						var body = {
-					
-						};	
-
-						// set request headers
-						var additionalParams = {
-						headers: {
-							'Access-Control-Allow-Origin' : '*',
-							'Access-Control-Allow-Headers':'*',
-							'Access-Control-Allow-Credentials' : true,
-							'Content-Type': 'application/json'
-						},
-					 	 queryParams: {
-							operation: 'addItem',
-							pos: position,
-							value: val,
-							matrixName: matrix
-					  	}
-					};
-
-					// invoke matrix creation
-					var response = apigClient.rootPost(params, body, additionalParams)
-						.then(function(result){
-							
-					}).catch( function(result){
-						  alert(result);
-					});
-			}*/
-
-		/*	function queryM (position1, position2){
-				// define variables to invoke API matrix creation operations
-				var params = {
-							operation: 'query',
-							pos1: position1,
-							pos2: position2,
-							matrixName: matrix
-						};
-
-						// define blank body
-						var body = {
-					
-						};	
-
-						// set request headers
-						var additionalParams = {
-						headers: {
-							'Access-Control-Allow-Origin' : '*',
-							'Access-Control-Allow-Headers':'*',
-							'Access-Control-Allow-Credentials' : true,
-							'Content-Type': 'application/json'
-						},
-					 	 queryParams: {
-							operation: 'query',
-							pos1: position1,
-							pos2: position2,
-							matrixName: matrix
-					  	}
-					};
-
-					// invoke matrix creation
-					var response = apigClient.rootPost(params, body, additionalParams)
-						.then(function(result){
-							var response = JSON.stringify(result);
-							alert(response);
-					}).catch( function(result){
-						  alert(result);
-					});
-			}*/
 			
 		</script>
 
