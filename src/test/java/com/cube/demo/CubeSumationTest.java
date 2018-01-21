@@ -28,8 +28,8 @@ public class CubeSumationTest {
 	
     @BeforeClass
     public static void createInput() throws IOException {
-        // Creation of input streams
-    		
+        
+    	// Creation of input streams
     	 matrixCreationRequest = new ByteArrayInputStream(
                  "{\"queryStringParameters\":{\"operation\":createMatrix,\"N\":4,\"matrixName\":hgt23051}}".getBytes());
     	 matrixCreationResponse = new ByteArrayOutputStream();
@@ -43,6 +43,7 @@ public class CubeSumationTest {
     	 queryResponse = new ByteArrayOutputStream();
     }
 
+    // default context creator
     private Context createContext() {
         TestContext ctx = new TestContext();
 
